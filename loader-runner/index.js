@@ -2,7 +2,8 @@
 // 入口文件
 const fs = require('fs');
 const path = require('path');
-const { runLoaders } = require('loader-runner');
+// const { runLoaders } = require('loader-runner');
+const { runLoaders } = require('./core');
 
 // 模块路径
 const filePath = path.resolve(__dirname, './title.js');
@@ -33,7 +34,7 @@ const rules = [
 
 // 从文件引入路径中提取inline loader 同时将文件路径中的 -!、!!、! 等标志inline-loader的规则删除掉
 const parts = request.replace(/^_?!+/, '').split('!');
-debugger
+
 
 // 获取文件路径
 const sourcePath = parts.pop();

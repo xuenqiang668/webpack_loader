@@ -20,26 +20,33 @@ module.exports = {
     // 模块加载规则
     module: {
         rules: [
+            // {
+            //     test: /\.js$/,
+            //     use: 'pre.js',
+            //     enforce: 'pre',
+            // },
+            // {
+            //     test: /\.js$/,
+            //     loader: 'normal.js',
+            // },
+            // {
+            //     test: /\.js$/,
+            //     enforce: 'post',
+            //     use: [
+            //         {
+            //             loader: 'post.js',
+            //             options: {
+            //                 name: 'post options'
+            //             }
+            //         }
+            //     ] 
+            // },
             {
                 test: /\.js$/,
-                use: 'pre.js',
-                enforce: 'pre',
-            },
-            {
-                test: /\.js$/,
-                loader: 'normal.js',
-            },
-            {
-                test: /\.js$/,
-                enforce: 'post',
-                use: [
-                    {
-                        loader: 'post.js',
-                        options: {
-                            name: 'post options'
-                        }
-                    }
-                ] 
+                loader: 'babel-loader.js',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
             }
         ],
     },
@@ -56,7 +63,7 @@ module.exports = {
         static: './dist', // 静态文件目录
         port: 3000, // 端口号
     },
-
+    devtool: 'source-map',
     // 模式
     mode: 'development', // 开发模式，也可以使用 'production' 进行生产打包
 };
