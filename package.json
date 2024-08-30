@@ -13,8 +13,13 @@
   "dependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
+    "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.0",
     "loader-runner": "^4.3.0",
+    "loader-utils": "^3.3.1",
+    "mime": "^4.0.4",
+    "sass": "^1.77.8",
+    "style-loader": "^4.0.0",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
