@@ -1,12 +1,27 @@
 // 这里要看原本的代码 先normal阶段checked一下
 function styleLoader(source) {
+  // console.log(source);
+  // const script = `
+  //     const styleEl = document.createElement('style')
+  //     styleEl.innerHTML = ${JSON.stringify(source)}
+  //     document.head.appendChild(styleEl)
+  //   `;
+  // return script;
+}
+
+styleLoader.pitch = function(remainingRequest, precedingRequest, data) {
+  console.log('remainingRequest',remainingRequest,'\n', 'precedingRequest',precedingRequest,'\n', data);
+
   const script = `
-      const styleEl = document.createElement('style')
-      styleEl.innerHTML = ${JSON.stringify(source)}
-      document.head.appendChild(styleEl)
-    `;
+  import style from "!!${remainingRequest}"
+
+    const styleEl = document.createElement('style')
+    styleEl.innerHTML = style
+    document.head.appendChild(styleEl)
+  `;
   return script;
 }
+
 /* 
   原本的style-loader是在pitch阶段处理的逻辑
   这是因为：

@@ -6,9 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     // 入口文件
     entry: './src/index.js',
-    // resolveLoader: {
-    //     modules: [ path.resolve(__dirname,'loaders/') ]
-    // },
+    resolveLoader: {
+        modules: [ path.resolve(__dirname,'loaders/'), 'node_modules' ]
+    },
 
     // 输出配置
     output: {
@@ -49,7 +49,7 @@ module.exports = {
                 test: /\.jpg$/,
                 use: [
                     {
-                        loader: path.resolve(__dirname, 'loaders/url-loader.js'),
+                        loader: 'url-loader.js',
                         options: {
                             limit: 100000 * 1024
                         }
@@ -60,20 +60,19 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     {
-                        // loader: 'style-loader'
-                        loader: path.resolve(__dirname, 'loaders/style-loader.js')
+                        loader: 'style-loader'
                     },
-                    // {
-                    //     loader: 'css-loader'
-                    // },
                     {
-                        loader: path.resolve(__dirname, 'loaders/sass-loader.js')
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader.js'
                     }
                 ]
             },
             {
                 test: /\.js$/,
-                loader: path.resolve(__dirname, 'loaders/babel-loader.js'),
+                loader: 'babel-loader.js',
                 options: {
                     presets: ['@babel/preset-env']
                 }
