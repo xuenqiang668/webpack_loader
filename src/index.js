@@ -1,15 +1,13 @@
 require('./file')
 require('./style/style.scss')
 
-
-
 // src/index.js
 // 这里我们使用ES6的语法
 const arrowFunction = () => {
-    console.log('hello');
-};
+  console.log('hello1')
+}
 
-console.log(arrowFunction);
+console.log(arrowFunction)
 /*
 编译之后
 
